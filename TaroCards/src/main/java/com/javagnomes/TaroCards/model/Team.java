@@ -7,7 +7,9 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ProjectStage stage;
 
