@@ -1,9 +1,9 @@
 import React from 'react';
-
+import TeamGetter from './components/TeamGetter';
 function TeamPage() {
     return (
         <div style={styles.container}>
-            <h1>Здесь статы по командам</h1>
+            <TeamGetter />
         </div>
     )
 }

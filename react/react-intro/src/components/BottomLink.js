@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function BottomLink({ label, path }){
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    function handleClick() {
         navigate(path);
     };
 
