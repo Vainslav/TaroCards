@@ -11,7 +11,7 @@ const styles = {
     container: {
         position:"absolute",
         width:"100%",
-        top:"50%",
+        top:"20%",
         textAlign: 'center'
     },
 };
