@@ -2,6 +2,9 @@ package com.javagnomes.TaroCards.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Создает таблицу PotentialVariants и даёт шаблон объекта таблицы
+ */
 @Entity
 public class PotentialVariants {
     @Id

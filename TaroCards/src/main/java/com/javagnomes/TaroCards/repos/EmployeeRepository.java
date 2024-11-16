@@ -8,6 +8,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+/**
+ * CRUD методы для таблички Employees и методы findByLastName, findByPosition, findByTeam
+ */
 @RepositoryRestResource
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findByLastName(String lastName);

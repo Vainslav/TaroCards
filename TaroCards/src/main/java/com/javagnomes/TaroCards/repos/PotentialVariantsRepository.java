@@ -8,6 +8,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+/**
+ * CRUD методы для таблички PotentialVariants и методы findByTeam, findByCandidate
+ */
 @RepositoryRestResource
 public interface PotentialVariantsRepository extends JpaRepository<PotentialVariants, Long> {
     List<PotentialVariants> findByTeam(Team team);

@@ -2,6 +2,9 @@ package com.javagnomes.TaroCards.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Создает таблицу Employees и даёт шаблон объекта таблицы
+ */
 @Entity
 public class Employee {
     @Id

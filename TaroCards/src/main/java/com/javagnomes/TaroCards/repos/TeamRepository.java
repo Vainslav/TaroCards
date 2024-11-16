@@ -8,6 +8,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+/**
+ * CRUD методы для таблички Teams и методы findByName, findByStage
+ */
 @RepositoryRestResource
 public interface TeamRepository extends JpaRepository<Team, Long> {
     List<Team> findByName(String name);

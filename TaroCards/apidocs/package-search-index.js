@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.javagnomes.TaroCards"},{"l":"com.javagnomes.TaroCards.cfg"},{"l":"com.javagnomes.TaroCards.model"},{"l":"com.javagnomes.TaroCards.model.enums"},{"l":"com.javagnomes.TaroCards.repos"}];updateSearchResults();
