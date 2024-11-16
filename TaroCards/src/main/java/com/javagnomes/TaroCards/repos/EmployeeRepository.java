@@ -10,9 +10,9 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    List<PotentialVariants> findByLastName(String lastName);
-    List<PotentialVariants> findByPosition(String position);
-    List<PotentialVariants> findByTeam(Team team);
+    List<Employee> findByLastName(String lastName);
+    List<Employee> findByPosition(String position);
+    List<Employee> findByTeam(Team team);
 
 
 }
