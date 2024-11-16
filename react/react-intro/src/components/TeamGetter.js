@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import SpiderChart from './SpiderChart';
 
 function TeamGetter(){
-  const [teams, setTeams] = useState([]); // Состояние для хранения списка команд
-  const [selectedTeam, setSelectedTeam] = useState(''); // Состояние для хранения выбранной команды
-  const [responseData, setResponseData] = useState(null); // Состояние для хранения ответа от сервера
-
+  const [teams, setTeams] = useState([]); 
+  const [selectedTeam, setSelectedTeam] = useState(''); 
+  const [responseData, setResponseData] = useState(null); 
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await fetch('http://localhost:8080/teams'); // URL для получения списка команд
+        const response = await fetch('http://localhost:8080/teams'); 
         if (!response.ok) {
           throw new Error('Ошибка при загрузке команд');
         }
         const data = await response.json();
 
-        // Извлечение name и stage из content и установка в состояние teams
         setTeams(data.content.map(({ name, stage }) => ({ name, stage })));
       } catch (error) {
         console.error('Ошибка:', error);
@@ -23,8 +22,6 @@ function TeamGetter(){
 
     fetchTeams();
   }, []);
-
-  // Обработка отправки выбранной команды
   const handleSubmit = async () => {
     if (!selectedTeam) {
       alert('Пожалуйста, выберите команду!');
@@ -41,13 +38,13 @@ function TeamGetter(){
       }
 
       const data = await response.json();
-      setResponseData(data); // Устанавливаем ответ от сервера в состояние
-      console.log('Ответ от сервера:', data); // Выводим ответ в консоль
+      setResponseData(data); 
+      console.log('Ответ от сервера:', data); 
     } catch (error) {
       console.error('Ошибка:', error);
     }
   };
-
+  const sampleData = [80, 60, 90, 70, 50, 85, 65, 75]; 
   return (
     <div>
       <h1>Выберите команду</h1>
@@ -60,13 +57,8 @@ function TeamGetter(){
         ))}
       </select>
       <button onClick={handleSubmit}>Отправить</button>
-
-      {responseData && (
-        <div>
-          <h2>Ответ от сервера:</h2>
-          <pre>{JSON.stringify(responseData, null, 2)}</pre>
-        </div>
-      )}
+        <h2>Ответ от сервера:</h2>
+          <SpiderChart data={sampleData} />
     </div>
   );
 };
