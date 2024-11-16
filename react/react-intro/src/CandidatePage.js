@@ -1,9 +1,14 @@
 import React from 'react';
+import CandidateForm from './components/CandidateForm';
 
 function CandidatePage() {
+    function handleClick() {
+        
+    };
     return (
         <div style={styles.container}>
-            <h1>Здесь кандидаты</h1>
+            <button onClick={handleClick}>Начать собеседование</button>
+            <CandidateForm />
         </div>
     )
 }
