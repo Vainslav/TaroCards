@@ -6,34 +6,23 @@ function TeamGetter(){
   const [responseData, setResponseData] = useState(null); // Состояние для хранения ответа от сервера
 
   useEffect(() => {
-    // Заменяем динамическую загрузку на статические тестовые данные
-    const fetchTeams = () => {
-      const testTeams = [
-        { id: 1, name: 'Alpha' },
-        { id: 2, name: 'Beta' },
-        { id: 3, name: 'Gamma' },
-      ];
-      setTeams(testTeams); // Устанавливаем тестовые команды в состояние
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/teams'); // URL для получения списка команд
+        if (!response.ok) {
+          throw new Error('Ошибка при загрузке команд');
+        }
+        const data = await response.json();
+
+        // Извлечение name и stage из content и установка в состояние teams
+        setTeams(data.content.map(({ name, stage }) => ({ name, stage })));
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
     };
 
     fetchTeams();
   }, []);
-//   useEffect(() => {
-//     const fetchTeams = async () => {
-//       try {
-//         const response = await fetch('http://localhost:8080/teams'); // URL для получения списка команд
-//         if (!response.ok) {
-//           throw new Error('Ошибка при загрузке команд');
-//         }
-//         const data = await response.json();
-//         setTeams(data); // Устанавливаем полученные команды в состояние
-//       } catch (error) {
-//         console.error('Ошибка:', error);
-//       }
-//     };
-
-//     fetchTeams();
-//   }, []);
 
   // Обработка отправки выбранной команды
   const handleSubmit = async () => {
@@ -43,7 +32,7 @@ function TeamGetter(){
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/team/${selectedTeam}`, {
+      const response = await fetch(`http://localhost:8080/teams/search/findByName?name=${selectedTeam}`, {
         method: 'GET',
       });
 
